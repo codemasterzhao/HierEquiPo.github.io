@@ -169,7 +169,66 @@
 <!-- End paper abstract -->
 
 
-
+ <!-- Method Overview -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Method Overview</h2>
+      
+      <!-- Overview Image -->
+      <figure class="image is-16by9">
+        <img src="static/images/overview.png" alt="HEP Overview">
+      </figure>
+      
+      <div class="content">
+        <p>
+          We introduce <strong>Hierarchical Equivariant Policy (HEP)</strong>, a novel framework for efficient and generalizable robotic manipulation. HEP is built on two core ideas: a hierarchical policy structure and a new <strong>Frame Transfer interface</strong> that enables seamless generalization and robustness.
+        </p>
+        <h4 class="title is-4">Hierarchical Policy Structure</h4>
+        <ul>
+          <li>
+            <strong>High-level policy:</strong> Responsible for global, long-horizon planning by predicting a “keypose” (i.e., a target 3D translation) that serves as a subgoal.
+          </li>
+          <li>
+            <strong>Low-level policy:</strong> Generates fine-grained motion trajectories in a local coordinate frame anchored at the keypose.
+          </li>
+        </ul>
+        <p>
+          This separation allows the high-level policy to focus on strategy while the low-level handles precise control, greatly reducing complexity.
+        </p>
+        <h4 class="title is-4">Frame Transfer Interface</h4>
+        
+        <!-- Frame Transfer GIF -->
+        <figure class="image is-3by1">
+          <img src="static/images/ft.gif" alt="Frame Transfer Interface Animation">
+        </figure>
+        
+        <p>
+          Instead of hard constraints, the high-level outputs a reference translation defining a local frame. The low-level operates relative to this frame, providing:
+        </p>
+        <ul>
+          <li><strong>Flexibility:</strong> Local trajectory optimization.</li>
+          <li><strong>Inductive bias:</strong> Natural generalization to new poses.</li>
+          <li><strong>Soft constraints:</strong> Compatibility with VLM or cross-embodiment planners.</li>
+        </ul>
+        <h4 class="title is-4">Geometric Symmetry</h4>
+        <p>
+          Both levels are equivariant to translations and rotations via:
+        </p>
+        <ul>
+          <li>SO(2)-equivariant 3D U-Net at high level.</li>
+          <li>Stacked voxel encoders preserving 3D structure.</li>
+          <li>Equivariant diffusion policy robust to disturbances.</li>
+        </ul>
+        <h4 class="title is-4">Training & Evaluation</h4>
+        <ul>
+          <li><strong>Sample efficiency:</strong> Strong performance from 30 demos.</li>
+          <li><strong>Generalization:</strong> High success on novel poses and environments.</li>
+          <li><strong>Robustness:</strong> Maintains performance under environment changes and distractors.</li>
+        </ul>
+        <p><strong>In summary</strong>, HEP’s symmetry-aware hierarchy and Frame Transfer interface enable robust, data-efficient, and highly generalizable robotic manipulation.</p>
+      </div>
+    </div>
+  </section>
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
