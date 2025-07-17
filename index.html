@@ -199,35 +199,19 @@
 
         <h4 class="title is-4">Frame Transfer Interface</h4>
         <!-- Frame Transfer GIF, natural size -->
-        <figure class="image">
-          <img src="static/images/ft.gif" alt="Frame Transfer Interface Animation">
-        </figure>
+      <figure class="image">
+        <video autoplay loop muted playsinline>
+          <source src="static/videos/frame_transfer.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </figure>
         <p>
           Instead of hard constraints, the high-level outputs a reference translation defining a local frame. The low-level operates relative to this frame, providing:
         </p>
         <ul>
-          <li><strong>Flexibility:</strong> Local trajectory optimization.</li>
+          <li><strong>Soft constraints:</strong> Local trajectory optimization.</li>
           <li><strong>Inductive bias:</strong> Natural generalization to new poses.</li>
-          <li><strong>Soft constraints:</strong> Compatibility with VLM or cross-embodiment planners.</li>
         </ul>
-
-        <h4 class="title is-4">Geometric Symmetry</h4>
-        <p>
-          Both levels are equivariant to translations and rotations via:
-        </p>
-        <ul>
-          <li>SO(2)-equivariant 3D U-Net at high level.</li>
-          <li>Stacked voxel encoders preserving 3D structure.</li>
-          <li>Equivariant diffusion policy robust to disturbances.</li>
-        </ul>
-
-        <h4 class="title is-4">Training & Evaluation</h4>
-        <ul>
-          <li><strong>Sample efficiency:</strong> Strong performance from 30 demos.</li>
-          <li><strong>Generalization:</strong> High success on novel poses and environments.</li>
-          <li><strong>Robustness:</strong> Maintains performance under environment changes and distractors.</li>
-        </ul>
-        <p><strong>In summary</strong>, HEP’s symmetry-aware hierarchy and Frame Transfer interface enable robust, data-efficient, and highly generalizable robotic manipulation.</p>
       </div>
     </div>
   </section>
